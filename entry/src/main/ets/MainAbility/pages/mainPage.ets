@@ -13,51 +13,91 @@
  * limitations under the License.
  */
 
-import { SimpleSnack, OneLineActionSnack, TwoLineActionSnack, BigTwoLineActionSnack
-}  from "@ohos/snackbar"
+import { MaterialSnackBar,
+  SnackBarModel, SnackBarType
+}  from "@ohos/material-snackbar"
 
 @Entry
 @Component
 struct Index {
-  message1: string = "Text associated with SimpleSnack"
-  message2: string = "Text of OneLineActionSnack"
-  message3: string = "Longer text associated with TwoLineActionSnack"
-  message4: string = "Longer text associated with BigTwoLineActionSnack"
-  button_text2: string = "ACTION"
-  button_text3: string = "ACTION"
-  button_text4: string = "LONGER ACTION"
-  @State btn :number = 0;
+  @State isShow1: boolean = false
+  @State isShow2: boolean = false
+  @State isShow3: boolean = false
+  @State isShow4: boolean = false
+  @State snackBarModel1: SnackBarModel = new SnackBarModel(SnackBarType.SimpleSnack)
+  @State snackBarModel2: SnackBarModel = new SnackBarModel(SnackBarType.OneLineActionSnack)
+  @State snackBarModel3: SnackBarModel = new SnackBarModel(SnackBarType.TwoLineActionSnack)
+  @State snackBarModel4: SnackBarModel = new SnackBarModel(SnackBarType.BigTwoLineActionSnack)
   SnackButtonAction: () => void = function () {
     console.log("test")
   }
+
+  aboutToAppear() {
+    this.snackBarModel1.setSnackBarText("Text associated with SimpleSnack")
+    this.snackBarModel1.setSnackTextColor("#ffffff")
+    this.snackBarModel1.setSnackBackColor("#9400D3")
+    this.snackBarModel1.setOpacity(1)
+    this.snackBarModel1.setTimer(4000)
+
+    this.snackBarModel2.setSnackBarText("Text of OneLineActionSnack")
+    this.snackBarModel2.setSnackTextColor("#ffffff")
+    this.snackBarModel2.setSnackBackColor("#9400D3")
+    this.snackBarModel2.setOpacity(1)
+    this.snackBarModel2.setTimer(4000)
+    this.snackBarModel2.setButtonText("ACTION")
+    this.snackBarModel2.setButtonTextColor("#ECD540")
+
+    this.snackBarModel3.setSnackBarText("Longer text associated with TwoLineActionSnack")
+    this.snackBarModel3.setSnackTextColor("#ffffff")
+    this.snackBarModel3.setSnackBackColor("#9400D3")
+    this.snackBarModel3.setOpacity(1)
+    this.snackBarModel3.setTimer(4000)
+    this.snackBarModel3.setButtonText("ACTION")
+    this.snackBarModel3.setButtonTextColor("#ECD540")
+
+    this.snackBarModel4.setSnackBarText("Longer text associated with BigTwoLineActionSnack")
+    this.snackBarModel4.setSnackTextColor("#ffffff")
+    this.snackBarModel4.setSnackBackColor("#9400D3")
+    this.snackBarModel4.setOpacity(1)
+    this.snackBarModel4.setTimer(4000)
+    this.snackBarModel4.setButtonText("LONGER ACTION")
+    this.snackBarModel4.setButtonTextColor("#ECD540")
+  }
+
   build() {
     Stack() {
       Column({ space: 8 }) {
         Column() {
           Button({ type: ButtonType.Capsule, stateEffect: true }) {
             Text("SimpleSnack").fontColor(Color.Black).fontSize(25).padding(7)
-          }
-          .backgroundColor("#00FFEF").margin(10)
+          }.backgroundColor("#00FFEF").margin(10)
           .onClick(() => {
-            this.btn= 1;
+            this.isShow1 = !this.isShow1
+            this.isShow2 = false
+            this.isShow3 = false
+            this.isShow4 = false
           })
         }
         Column() {
           Button({ type: ButtonType.Capsule, stateEffect: true }) {
             Text("OneLineActionSnack").fontColor(Color.Black).fontSize(25).padding(7)
-          }
-          .backgroundColor("#00FFEF").margin(10)
+          }.backgroundColor("#00FFEF").margin(10)
           .onClick(() => {
-            this.btn = 2;
+            this.isShow2 = !this.isShow2
+            this.isShow1 = false
+            this.isShow3 = false
+            this.isShow4 = false
           })
         }
         Column() {
           Button({ type: ButtonType.Capsule, stateEffect: true }) {
             Text("TwoLineActionSnack").fontColor(Color.Black).fontSize(25).padding(7)
-          }
-          .backgroundColor("#00FFEF").margin(10)
+          }.backgroundColor("#00FFEF").margin(10)
           .onClick(() => {
-            this.btn = 3;
+            this.isShow3 = !this.isShow3
+            this.isShow2 = false
+            this.isShow1 = false
+            this.isShow4 = false
           })
         }
         Column() {
@@ -65,33 +105,36 @@ struct Index {
             Text("BigTwoLineActionSnack").fontColor(Color.Black).fontSize(25).padding(7)
           }.backgroundColor("#00FFEF").margin(10)
           .onClick(() => {
-            this.btn = 4;
+            this.isShow4 = !this.isShow4
+            this.isShow2 = false
+            this.isShow3 = false
+            this.isShow1 = false
           })
         }
       }
-      if (this.btn === 1) {
-        SimpleSnack({ message: this.message1 })
+
+      if (this.isShow1) {
+        MaterialSnackBar({
+          obj: this.snackBarModel1
+        })
       }
-      if (this.btn === 2) {
-        OneLineActionSnack({
-          message: this.message2,
-          button_text: this.button_text2,
+      if (this.isShow2) {
+        MaterialSnackBar({
+          obj: this.snackBarModel2,
           func: this.SnackButtonAction
-        });
+        })
       }
-      if (this.btn===3) {
-        TwoLineActionSnack({
-          message: this.message3,
-          button_text: this.button_text3,
+      if (this.isShow3) {
+        MaterialSnackBar({
+          obj: this.snackBarModel3,
           func: this.SnackButtonAction
-        });
+        })
       }
-      if (this.btn===4) {
-        BigTwoLineActionSnack({
-          message: this.message4,
-          button_text: this.button_text4,
+      if (this.isShow4) {
+        MaterialSnackBar({
+          obj: this.snackBarModel4,
           func: this.SnackButtonAction
-        });
+        })
       }
     }
     .width("100%")
