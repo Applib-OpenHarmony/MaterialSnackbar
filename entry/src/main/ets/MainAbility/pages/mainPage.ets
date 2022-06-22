@@ -24,10 +24,10 @@ struct Index {
   @State isShow2: boolean = false
   @State isShow3: boolean = false
   @State isShow4: boolean = false
-  @State snackBarModel1: SnackBarModel = new SnackBarModel(SnackBarType.SimpleSnack)
-  @State snackBarModel2: SnackBarModel = new SnackBarModel(SnackBarType.OneLineActionSnack)
-  @State snackBarModel3: SnackBarModel = new SnackBarModel(SnackBarType.TwoLineActionSnack)
-  @State snackBarModel4: SnackBarModel = new SnackBarModel(SnackBarType.BigTwoLineActionSnack)
+  private snackBarModel1: SnackBarModel = new SnackBarModel(SnackBarType.SimpleSnack)
+  private snackBarModel2: SnackBarModel = new SnackBarModel(SnackBarType.OneLineActionSnack)
+  private snackBarModel3: SnackBarModel = new SnackBarModel(SnackBarType.TwoLineActionSnack)
+  private snackBarModel4: SnackBarModel = new SnackBarModel(SnackBarType.BigTwoLineActionSnack)
   SnackButtonAction: () => void = function () {
     console.log("test")
   }
@@ -121,19 +121,19 @@ struct Index {
       if (this.isShow2) {
         MaterialSnackBar({
           obj: this.snackBarModel2,
-          func: this.SnackButtonAction
+          action: this.SnackButtonAction
         })
       }
       if (this.isShow3) {
         MaterialSnackBar({
           obj: this.snackBarModel3,
-          func: this.SnackButtonAction
+          action: this.SnackButtonAction
         })
       }
       if (this.isShow4) {
         MaterialSnackBar({
           obj: this.snackBarModel4,
-          func: this.SnackButtonAction
+          action: this.SnackButtonAction
         })
       }
     }

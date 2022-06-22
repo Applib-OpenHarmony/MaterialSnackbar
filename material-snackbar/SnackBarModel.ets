@@ -31,87 +31,101 @@ export class SnackBarModel {
   private show: Visibility = Visibility.Visible
   private timer: number = 4000
   constructor(value: SnackBarType) {
-    this.snackType = value
+    if (value != null || value != undefined) this.snackType = value
+    else this.error('snackType')
+  }
+
+  error(msg: string) {
+    console.error('Undefined : ' + msg + ' is a mandatory attribute')
   }
 
   setSnackBackColor(value: string | ResourceColor): SnackBarModel {
-    this.snackBackColor = value
+    if (value != null || value != undefined ) this.snackBackColor = value
     return this
   }
 
   getSnackBackColor(): string | ResourceColor {
+    if (this.snackBackColor == null || this.snackBackColor == undefined) this.error('snackBackColor')
     return this.snackBackColor
   }
 
   setSnackBarText(value: string): SnackBarModel{
-    this.snackBarText = value
+    if (value != null || value != undefined ) this.snackBarText = value
     return this
   }
 
   getSnackBarText(): string {
+    if (this.snackBarText == null || this.snackBarText == undefined) this.error('snackBarText')
     return this.snackBarText
   }
 
   setSnackTextColor(value: string | ResourceColor): SnackBarModel{
-    this.snackTextColor = value
+    if (value != null || value != undefined ) this.snackTextColor = value
     return this
   }
 
   getSnackTextColor(): string | ResourceColor{
+    if (this.snackTextColor == null || this.snackTextColor == undefined) this.error('snackTextColor')
     return this.snackTextColor
   }
 
   setOpacity(value: number): SnackBarModel{
-    this.opacity = value
+    if (value != null || value != undefined ) this.opacity = value
     return this
   }
 
   getOpacity(): number{
+    if (this.opacity == null || this.opacity == undefined) this.error('opacity')
     return this.opacity
   }
 
   setButtonText(value: string): SnackBarModel{
-    this.buttonText = value
+    if (value != null || value != undefined ) this.buttonText = value
     return this
   }
 
   getButtonText(): string{
+    if ((this.buttonText == null || this.buttonText == undefined) && this.getSnackType()!=SnackBarType.SimpleSnack) this.error('buttonText')
     return this.buttonText
   }
 
   setButtonTextColor(value: string): SnackBarModel{
-    this.buttonTextColor = value
+    if (value != null || value != undefined ) this.buttonTextColor = value
     return this
   }
 
   getButtonTextColor(): string{
+    if (this.buttonTextColor == null || this.buttonTextColor == undefined) this.error('buttonTextColor')
     return this.buttonTextColor
   }
 
   setSnackType(value: SnackBarType): SnackBarModel{
-    this.snackType = value
+    if (value != null || value != undefined ) this.snackType = value
     return this
   }
 
   getSnackType(): SnackBarType{
+    if (this.snackType == null || this.snackType == undefined) this.error('snackType')
     return this.snackType
   }
 
   setShow(value: Visibility): SnackBarModel{
-    this.show = value
+    if (value != null || value != undefined ) this.show = value
     return this
   }
 
   getShow(): Visibility{
+    if (this.show == null || this.show == undefined) this.error('show')
     return this.show
   }
 
   setTimer(value: number): SnackBarModel{
-    this.timer = value
+    if (value != null || value != undefined ) this.timer = value
     return this
   }
 
   getTimer(): number {
+    if (this.timer == null || this.timer == undefined) this.error('timer')
     return this.timer
   }
 }
