@@ -19,7 +19,12 @@ import { SnackBarModel, SnackBarType } from '@ohos/material-snackbar'
 export struct MaterialSnackBar {
   @State obj: SnackBarModel = new SnackBarModel(SnackBarType.SimpleSnack) ;
   action: () => void ;
-
+  aboutToAppear(){
+    if( (this.obj.getSnackType() != SnackBarType.SimpleSnack)&&(this.action==null||this.action==undefined ))
+    {
+      console.error("please pass function associated with the action in MaterialSnackBar")
+    }
+  }
   build() {
     Column() {
       if (this.obj.getSnackType() == SnackBarType.SimpleSnack && (this.obj.getSnackBarText() != null || this.obj.getSnackBarText() != undefined)) {
@@ -46,7 +51,7 @@ export struct MaterialSnackBar {
         .opacity(this.obj.getOpacity())
       }
 
-      else if (this.obj.getSnackType() == SnackBarType.OneLineActionSnack && (this.obj.getSnackBarText() != null || this.obj.getSnackBarText() != undefined)&& (this.obj.getButtonText() != null || this.obj.getButtonText() != undefined )) {
+      else if (this.obj.getSnackType() == SnackBarType.OneLineActionSnack && (this.obj.getSnackBarText() != null || this.obj.getSnackBarText() != undefined)&& (this.obj.getButtonText() != null || this.obj.getButtonText() != undefined )&&(this.action!=null||this.action!=undefined)) {
         Flex({ direction: FlexDirection.ColumnReverse, justifyContent: FlexAlign.SpaceBetween }) {
           Flex({ justifyContent: FlexAlign.SpaceBetween, alignItems: ItemAlign.Center }) {
             Text(this.obj.getSnackBarText())
@@ -80,7 +85,7 @@ export struct MaterialSnackBar {
         .opacity(this.obj.getOpacity())
       }
 
-      else if (this.obj.getSnackType() == SnackBarType.TwoLineActionSnack && (this.obj.getSnackBarText() != null || this.obj.getSnackBarText() != undefined)&& (this.obj.getButtonText() != null || this.obj.getButtonText() != undefined )) {
+      else if (this.obj.getSnackType() == SnackBarType.TwoLineActionSnack && (this.obj.getSnackBarText() != null || this.obj.getSnackBarText() != undefined)&& (this.obj.getButtonText() != null || this.obj.getButtonText() != undefined )&&(this.action!=null||this.action!=undefined)) {
         Flex({ direction: FlexDirection.ColumnReverse, justifyContent: FlexAlign.SpaceBetween }) {
           Row() {
             Column() {
@@ -118,7 +123,7 @@ export struct MaterialSnackBar {
         .opacity(this.obj.getOpacity())
       }
 
-      else if (this.obj.getSnackType() == SnackBarType.BigTwoLineActionSnack && (this.obj.getSnackBarText() != null || this.obj.getSnackBarText() != undefined)&& (this.obj.getButtonText() != null || this.obj.getButtonText() != undefined )) {
+      else if (this.obj.getSnackType() == SnackBarType.BigTwoLineActionSnack && (this.obj.getSnackBarText() != null || this.obj.getSnackBarText() != undefined)&& (this.obj.getButtonText() != null || this.obj.getButtonText() != undefined )&&(this.action!=null||this.action!=undefined)) {
         Flex({ direction: FlexDirection.ColumnReverse, justifyContent: FlexAlign.SpaceBetween }) {
           Column() {
             Column() {
