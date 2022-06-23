@@ -45,7 +45,7 @@ MaterialSnackBar({
           obj : this.snackBarModel1
         })
 ```
-![s1](https://user-images.githubusercontent.com/84433855/173008655-0f4d33ec-dcf0-4e1c-a9a7-7b48fa0006a2.png)
+![s11](https://user-images.githubusercontent.com/84433855/175003092-0f59a5fd-c122-48e0-ab95-b7d66e76e2b7.png)
 
 ## OneLineActionSnack ( Snackbar with one line message plus the action button )
 ```ets
@@ -75,7 +75,7 @@ MaterialSnackBar({
           func : this.SnackButtonAction
         })
 ```
-![s2](https://user-images.githubusercontent.com/84433855/173008731-c6df6d51-66cc-4cf0-bc86-57e0b2b60c62.png)
+![s22](https://user-images.githubusercontent.com/84433855/175003245-800fa782-776b-42ba-87ca-0fbd24172bcd.png)
 
 ##  TwoLineActionSnack ( Snackbar with two line message plus the action button )
 ```ets
@@ -105,7 +105,7 @@ MaterialSnackBar({
           func : this.SnackButtonAction
         })
 ```
-![s3](https://user-images.githubusercontent.com/84433855/173008773-43338d25-e5fb-43c0-8405-704fec24db57.png)
+![s33](https://user-images.githubusercontent.com/84433855/175003296-30483516-2be1-40ce-b2de-2a97de133ef8.png)
 
 ##  BigLineActionSnack ( Snackbar with longer two line message plus the longer action button )
 ```ets
@@ -135,7 +135,7 @@ MaterialSnackBar({
           func : this.SnackButtonAction
         })
 ```        
-![s4](https://user-images.githubusercontent.com/84433855/173008958-96d9c4b5-893c-4213-9143-83e11898741e.png)
+![s44](https://user-images.githubusercontent.com/84433855/175003407-68d0b1ee-e6b3-4cb5-afae-813413280b0a.png)
 
 ## Compatibility
 Supports OpenHarmony API version 8
