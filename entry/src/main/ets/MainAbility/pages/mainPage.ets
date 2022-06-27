@@ -15,7 +15,7 @@
 
 import { MaterialSnackBar,
   SnackBarModel, SnackBarType
-}  from "@ohos/material-snackbar"
+}  from "@ohos/materialsnackbar"
 
 @Entry
 @Component

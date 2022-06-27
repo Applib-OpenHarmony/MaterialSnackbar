@@ -6,7 +6,7 @@ Material component Snackbar design in OpenHarmony.
 
 Install using npm
 
-```npm install https://github.com/Applib-OpenHarmony/Material_UI_Snackbar```
+```npm i @ohos/materialsnackbar```
 
 ## Usage Instructions
 
@@ -15,7 +15,7 @@ To be able to use snackbars, below import statement must be used
 ```ets
 import { MaterialSnackBar ,
   SnackBarModel ,SnackBarType
-}  from "@ohos/material-snackbar"
+}  from "@ohos/materialsnackbar"
 ```
 
 

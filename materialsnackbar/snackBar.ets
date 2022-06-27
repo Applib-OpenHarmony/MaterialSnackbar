@@ -13,17 +13,15 @@
  * limitations under the License.
  */
 
-import { SnackBarModel, SnackBarType } from '@ohos/material-snackbar'
+import { SnackBarModel, SnackBarType } from '@ohos/materialsnackbar'
 
 @Component
 export struct MaterialSnackBar {
-  @State obj: SnackBarModel = new SnackBarModel(SnackBarType.SimpleSnack) ;
+  @State obj: SnackBarModel = new SnackBarModel(SnackBarType.SimpleSnack);
   action: () => void ;
-  aboutToAppear(){
-    if( (this.obj.getSnackType() != SnackBarType.SimpleSnack)&&(this.action==null||this.action==undefined ))
-    {
-      console.error("please pass function associated with the action in MaterialSnackBar")
-    }
+  errorMessage()
+  {
+    console.error("getting 1 arguments instead of 2,please also pass function associated with the action in MaterialSnackBar")
   }
   build() {
     Column() {
@@ -51,7 +49,7 @@ export struct MaterialSnackBar {
         .opacity(this.obj.getOpacity())
       }
 
-      else if (this.obj.getSnackType() == SnackBarType.OneLineActionSnack && (this.obj.getSnackBarText() != null || this.obj.getSnackBarText() != undefined)&& (this.obj.getButtonText() != null || this.obj.getButtonText() != undefined )&&(this.action!=null||this.action!=undefined)) {
+      else if (this.obj.getSnackType() == SnackBarType.OneLineActionSnack && (this.obj.getSnackBarText() != null || this.obj.getSnackBarText() != undefined)&& (this.obj.getButtonText() != null || this.obj.getButtonText() != undefined )) {
         Flex({ direction: FlexDirection.ColumnReverse, justifyContent: FlexAlign.SpaceBetween }) {
           Flex({ justifyContent: FlexAlign.SpaceBetween, alignItems: ItemAlign.Center }) {
             Text(this.obj.getSnackBarText())
@@ -65,7 +63,9 @@ export struct MaterialSnackBar {
               .fontSize(18)
               .margin({ left: 8, right: 8, top: 6, bottom: 6 })
               .onClick(() => {
-                this.action();
+                if((this.action!=null||this.action!=undefined))
+                this.action()
+                else this.errorMessage()
                 this.obj.setShow(Visibility.None)
               })
           }
@@ -85,7 +85,7 @@ export struct MaterialSnackBar {
         .opacity(this.obj.getOpacity())
       }
 
-      else if (this.obj.getSnackType() == SnackBarType.TwoLineActionSnack && (this.obj.getSnackBarText() != null || this.obj.getSnackBarText() != undefined)&& (this.obj.getButtonText() != null || this.obj.getButtonText() != undefined )&&(this.action!=null||this.action!=undefined)) {
+      else if (this.obj.getSnackType() == SnackBarType.TwoLineActionSnack && (this.obj.getSnackBarText() != null || this.obj.getSnackBarText() != undefined)&& (this.obj.getButtonText() != null || this.obj.getButtonText() != undefined )) {
         Flex({ direction: FlexDirection.ColumnReverse, justifyContent: FlexAlign.SpaceBetween }) {
           Row() {
             Column() {
@@ -104,7 +104,9 @@ export struct MaterialSnackBar {
               .width(100)
               .fontSize(18)
               .onClick(() => {
-                this.action();
+                if((this.action!=null||this.action!=undefined))
+                this.action()
+                else this.errorMessage()
                 this.obj.setShow(Visibility.None)
               })
           }
@@ -123,7 +125,7 @@ export struct MaterialSnackBar {
         .opacity(this.obj.getOpacity())
       }
 
-      else if (this.obj.getSnackType() == SnackBarType.BigTwoLineActionSnack && (this.obj.getSnackBarText() != null || this.obj.getSnackBarText() != undefined)&& (this.obj.getButtonText() != null || this.obj.getButtonText() != undefined )&&(this.action!=null||this.action!=undefined)) {
+      else if (this.obj.getSnackType() == SnackBarType.BigTwoLineActionSnack && (this.obj.getSnackBarText() != null || this.obj.getSnackBarText() != undefined)&& (this.obj.getButtonText() != null || this.obj.getButtonText() != undefined )) {
         Flex({ direction: FlexDirection.ColumnReverse, justifyContent: FlexAlign.SpaceBetween }) {
           Column() {
             Column() {
@@ -148,7 +150,9 @@ export struct MaterialSnackBar {
                 .width(200)
                 .height(30)
                 .onClick(() => {
-                  this.action();
+                  if((this.action!=null||this.action!=undefined))
+                  this.action()
+                  else this.errorMessage()
                   this.obj.setShow(Visibility.None)
                 })
               }

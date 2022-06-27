@@ -1,5 +1,5 @@
 {
-  "name": "@ohos/material-snackbar",
+  "name": "@ohos/materialsnackbar",
   "version": "1.0.0",
   "main": "snackBar.ets",
   "scripts": {
