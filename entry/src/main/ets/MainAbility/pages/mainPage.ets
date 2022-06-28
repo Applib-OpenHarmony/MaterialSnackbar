@@ -78,6 +78,7 @@ struct Index {
             this.isShow4 = false
           })
         }
+
         Column() {
           Button({ type: ButtonType.Capsule, stateEffect: true }) {
             Text("OneLineActionSnack").fontColor(Color.Black).fontSize(25).padding(7)
@@ -89,6 +90,7 @@ struct Index {
             this.isShow4 = false
           })
         }
+
         Column() {
           Button({ type: ButtonType.Capsule, stateEffect: true }) {
             Text("TwoLineActionSnack").fontColor(Color.Black).fontSize(25).padding(7)
@@ -100,6 +102,7 @@ struct Index {
             this.isShow4 = false
           })
         }
+
         Column() {
           Button({ type: ButtonType.Capsule, stateEffect: true }) {
             Text("BigTwoLineActionSnack").fontColor(Color.Black).fontSize(25).padding(7)
