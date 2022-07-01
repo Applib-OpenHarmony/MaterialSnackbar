@@ -13,13 +13,12 @@
  * limitations under the License.
  */
 
-import { MaterialSnackBar,
-  SnackBarModel, SnackBarType
+import { MaterialSnackBar,SnackBarModel,SnackBarType
 }  from "@ohos/materialsnackbar"
 
 @Entry
 @Component
-struct Index {
+struct mainPage {
   @State isShow1: boolean = false
   @State isShow2: boolean = false
   @State isShow3: boolean = false
