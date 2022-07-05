@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { SnackBarModel, SnackBarType } from '@ohos/materialsnackbar'
+import { SnackBarModel, SnackBarType } from './SnackBarModel'
 
 @Component
 export struct MaterialSnackBar {

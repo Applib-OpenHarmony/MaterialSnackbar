@@ -138,7 +138,7 @@ MaterialSnackBar({
 ![s44](https://user-images.githubusercontent.com/84433855/175003407-68d0b1ee-e6b3-4cb5-afae-813413280b0a.png)
 
 ## Compatibility
-Supports OpenHarmony API version 8
+Supports OpenHarmony API version 9
 
 # Reference:
 
